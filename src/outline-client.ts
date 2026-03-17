@@ -76,7 +76,7 @@ export class OutlineClient {
   async listDocuments(collectionId?: string, limit: number = 25): Promise<Document[]> {
     const payload: any = { limit };
     if (collectionId) {
-      payload.collection = collectionId;
+      payload.collectionId = collectionId;
     }
 
     const endpoints = ['/api/documents.list', '/api/documents/list', '/api/documents', '/api/document/list'];
@@ -122,7 +122,7 @@ export class OutlineClient {
     };
 
     if (data.collectionId) {
-      payload.collection = data.collectionId;
+      payload.collectionId = data.collectionId;
     }
     if (data.parentDocumentId) {
       payload.parentDocumentId = data.parentDocumentId;
