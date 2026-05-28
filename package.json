@@ -1,14 +1,24 @@
 {
-  "name": "outline-mcp-server",
+  "name": "getoutline-mcp-server",
   "version": "1.0.0",
   "description": "Model Context Protocol server for Outline document management",
   "main": "dist/index.js",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "getoutline-mcp-server": "dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsc && node dist/index.js",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "prepare": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "keywords": [
     "mcp",
@@ -16,6 +26,14 @@
     "documents",
     "knowledge-base"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelicopterHelicopter/outline-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HelicopterHelicopter/outline-mcp-server/issues"
+  },
+  "homepage": "https://github.com/HelicopterHelicopter/outline-mcp-server#readme",
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -26,8 +44,5 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "typescript": "^5.0.0"
-  },
-  "bin": {
-    "outline-mcp-server": "dist/index.js"
   }
-} 
+}

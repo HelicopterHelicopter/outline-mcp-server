@@ -10,7 +10,31 @@ A Model Context Protocol (MCP) server for [Outline](https://www.getoutline.com/)
 - **Full Text Search**: Search across all documents in your Outline instance
 - **Markdown Support**: Create and edit documents with full Markdown formatting
 
-## Installation
+## Quick Start (npx)
+
+The easiest way to use this server is via `npx` — no cloning or building required.
+Point your MCP client at it directly:
+
+```json
+{
+  "mcpServers": {
+    "outline": {
+      "command": "npx",
+      "args": ["-y", "getoutline-mcp-server"],
+      "env": {
+        "OUTLINE_API_KEY": "your-secret-api-token",
+        "OUTLINE_BASE_URL": "https://your-outline-instance.com"
+      }
+    }
+  }
+}
+```
+
+See [Configuration](#configuration) for how to obtain the API token.
+
+## Installation (from source)
+
+For local development, or to run from source instead of npm:
 
 1. Clone or download this repository
 2. Install dependencies:
@@ -177,7 +201,29 @@ To use this server with an MCP client, you'll need to configure it to run this s
 
 #### Claude
 
-For clients like Claude that use a JSON configuration file, you can add the following to your `mcp-servers.json`:
+For clients like Claude that use a JSON configuration file, add the following to your
+`mcp-servers.json`. The recommended approach uses `npx`, so there is nothing to clone or
+build:
+
+```json
+{
+  "mcpServers": {
+    "outline": {
+      "command": "npx",
+      "args": ["-y", "getoutline-mcp-server"],
+      "env": {
+        "OUTLINE_API_KEY": "your-secret-api-token",
+        "OUTLINE_BASE_URL": "https://your-outline-instance.com"
+      }
+    }
+  }
+}
+```
+
+##### Alternative: run from source
+
+If you have cloned and built the project locally, point the client at the compiled
+`dist/index.js` instead:
 
 ```json
 {
